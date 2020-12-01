@@ -1,0 +1,80 @@
+import SignupForm from './SignupForm'
+
+# Exercise 7 – Other Input Types
+
+Implement one of each type of the components demonstrated here in
+`pages/07-other-input-types/SignupForm.js`.
+
+This page will hot-reload with your changes.
+
+<SignupForm />
+
+## Description
+
+Not all inputs are text fields. HTML has checkboxes, radio buttons, dropdowns, multiple selects, and more! Let's learn how to render them with React Final Form.
+
+See the official [Simple Example](https://final-form.org/docs/react-final-form/examples/simple) for a demonstration of how they work.
+
+## Checkboxes for booleans
+
+This will manage a boolean value:
+
+```jsx
+<Field name="readTerms" component="input" type="checkbox" />
+```
+
+## Checkboxes for lists
+
+To have checkboxes manage a list of string values, you must specifiy both `type="checkbox"` as well as a `value` prop.
+
+This will manage a list of strings:
+
+```jsx
+<Field name="toppings" component="input" type="checkbox" value="Pepperoni" />
+<Field name="toppings" component="input" type="checkbox" value="Mushrooms" />
+<Field name="toppings" component="input" type="checkbox" value="Olives" />
+<Field name="toppings" component="input" type="checkbox" value="Peppers" />
+```
+
+The `checked` state of each checkbox signifies whether or not the `value` is in the list.
+
+## Radio buttons
+
+This will manage a single string value set to the `value` of the selected radio button.
+
+```jsx
+<label>
+  <Field name="stooge" component="input" type="radio" value="larry" /> Larry
+</label>
+<label>
+  <Field name="stooge" component="input" type="radio" value="moe" /> Moe
+</label>
+<label>
+  <Field name="stooge" component="input" type="radio" value="curly" /> Curly
+</label>
+```
+
+## Single select
+
+This will render a single `<select/>` component. Notice that the `children` are getting passed along from `<Field/>` to `<select/>`!
+
+```jsx
+<Field name="favoriteColor" component="select">
+  <option />
+  <option value="#ff0000">❤️ Red</option>
+  <option value="#00ff00">💚 Green</option>
+  <option value="#0000ff">💙 Blue</option>
+</Field>
+```
+
+## Multiple select
+
+This will render a `<select multiple/>` component that will manage an array of strings.
+
+```jsx
+<Field name="bestConferences" component="select" multiple>
+  <option value="Reactathon 2018">Reactathon 2018</option>
+  <option value="Reactathon 2019">Reactathon 2019</option>
+  <option value="Reactathon 2020">Reactathon 2020</option>
+</Field>
+```

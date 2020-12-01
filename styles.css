@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+  line-height: 1.3em;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+#__next {
+  width: 100%;
+}
+
+header {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+header h1,
+header h3 {
+  margin: 5px;
+}
+
+header h1 a,
+header h3 a {
+  text-decoration: none;
+  color: #333;
+  font-weight: normal;
+}
+
+header section {
+  margin: 0 auto 5px auto;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+header section a {
+  color: #0366d6;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.markdown-body {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 130px 20px 50px 20px;
+}
+.markdown-body p {
+  line-height: 1.5em;
+}
+
+.markdown-body > pre,
+.markdown-body > pre > pre {
+  padding: 0;
+  font-size: 1em;
+  margin: 0;
+}
+.markdown-body > pre {
+  margin: 20px 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+.markdown-body > pre > pre .token-line {
+  min-height: 20px;
+}
+.markdown-body > pre > pre .token-line:last-child {
+  min-height: 0;
+}
+
+form {
+  width: 500px;
+  margin: 40px auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+  display: flex;
+  font-size: 15px;
+  flex-flow: column nowrap;
+  position: relative;
+}
+form.bookForm {
+  width: 600px;
+}
+form.bookForm label {
+  width: 200px;
+}
+form i {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-style: normal;
+  text-align: center;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #eee;
+  z-index: 2;
+}
+
+form > div > i {
+  top: 10px;
+  right: 3px;
+}
+
+form > div {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 8px;
+  border-radius: 6px;
+}
+form > div.active {
+  background-color: lavender;
+}
+form > div.error {
+  display: block;
+  color: #a00;
+  font-weight: bold;
+  text-align: center;
+}
+
+form > div > div {
+  display: block;
+  flex: 100%;
+}
+form > div > div.radios {
+  flex: 1;
+}
+form > div label {
+  padding: 5px;
+  display: block;
+}
+
+form > div > label {
+  font-weight: bold;
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+  padding: 7px 8px;
+}
+
+form > div > input,
+form > div > select,
+form > div > textarea {
+  flex: 1;
+}
+
+form > div > span {
+  color: #a00;
+  font-weight: bold;
+  margin-left: 5px;
+  padding: 7px 8px;
+}
+
+form input,
+form select,
+form textarea {
+  font-size: 1em;
+  padding: 5px 8px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+form input[type='checkbox'] {
+  margin-top: 10px;
+}
+
+form button {
+  padding: 8px 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 5px;
+}
+form button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+form button[type='submit'] {
+  background-image: linear-gradient(#77e, #77c);
+  width: 150px;
+  margin: 15px auto 0px auto;
+}
+
+form button.add {
+  background-image: linear-gradient(#7e7, #7c7);
+  width: 150px;
+  margin: 15px auto 0px auto;
+}
+
+form button.remove {
+  background-image: linear-gradient(#e77, #c77);
+}
+
+form pre {
+  position: relative;
+  border: 1px solid #ccc;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-top: 15px !important;
+  overflow: visible;
+}
+
+.booklist {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.booklist a {
+  display: flex;
+  flex-flow: row nowrap;
+  color: #333;
+  padding: 5px 8px;
+}
+
+.booklist a:nth-child(odd) {
+  background-color: #eee;
+}
+
+.booklist a:hover {
+  background: yellow;
+  text-decoration: none;
+}
+
+.booklist a .title {
+  flex: 1;
+}
+.booklist a .author {
+  flex: 1;
+}
+
+.booklist a .year {
+  width: 50px;
+  text-align: right;
+}
