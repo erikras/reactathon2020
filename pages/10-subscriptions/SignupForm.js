@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Field } from 'react-final-form'
+import { Form, Field, FormSpy } from 'react-final-form'
 import validate from './validate'
 import RenderCount from './RenderCount'
 import onSubmit from '../../common/onSubmit'
@@ -13,11 +13,18 @@ import onSubmit from '../../common/onSubmit'
  */
 export default function SignupForm() {
   return (
-    <Form onSubmit={onSubmit} validate={validate}>
+    <Form
+      onSubmit={onSubmit}
+      validate={validate}
+      subscription={{ submitting: true }}
+    >
       {({ handleSubmit, values, submitting }) => (
         <form onSubmit={handleSubmit}>
           <RenderCount />
-          <Field name="firstName">
+          <Field
+            name="firstName"
+            subscription={{ value: true, error: true, touched: true }}
+          >
             {({ input, meta }) => (
               <div>
                 <RenderCount />
@@ -32,7 +39,10 @@ export default function SignupForm() {
               </div>
             )}
           </Field>
-          <Field name="lastName">
+          <Field
+            name="lastName"
+            subscription={{ value: true, error: true, touched: true }}
+          >
             {({ input, meta }) => (
               <div>
                 <RenderCount />
@@ -47,7 +57,10 @@ export default function SignupForm() {
               </div>
             )}
           </Field>
-          <Field name="email">
+          <Field
+            name="email"
+            subscription={{ value: true, error: true, touched: true }}
+          >
             {({ input, meta }) => (
               <div>
                 <RenderCount />
@@ -60,10 +73,14 @@ export default function SignupForm() {
           <button type="submit" disabled={submitting}>
             Submit
           </button>
-          <pre>
-            <RenderCount />
-            {JSON.stringify(values, undefined, 2)}
-          </pre>
+          <FormSpy subscription={{ values: true }}>
+            {({ values }) => (
+              <pre>
+                <RenderCount />
+                {JSON.stringify(values, undefined, 2)}
+              </pre>
+            )}
+          </FormSpy>
         </form>
       )}
     </Form>

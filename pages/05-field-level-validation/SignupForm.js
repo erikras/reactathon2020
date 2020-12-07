@@ -3,6 +3,12 @@ import { Form, Field } from 'react-final-form'
 import isEmail from 'sane-email-validation'
 import onSubmit from '../../common/onSubmit'
 
+const required = value => (value ? undefined : 'Required')
+const isValidEmail = value => (isEmail(value) ? undefined : 'Invalid Email')
+
+const composeValidators = (...validators) => value =>
+  validators.reduce((error, validator) => error || validator(value), undefined)
+
 /**
  * Objective: Convert from record-level to field-level validation
  *
@@ -14,27 +20,10 @@ import onSubmit from '../../common/onSubmit'
  */
 export default function SignupForm() {
   return (
-    <Form
-      onSubmit={onSubmit}
-      validate={values => {
-        const errors = {}
-        if (!values.firstName) {
-          errors.firstName = 'Required'
-        }
-        if (!values.lastName) {
-          errors.lastName = 'Required'
-        }
-        if (!values.email) {
-          errors.email = 'Required'
-        } else if (!isEmail(values.email)) {
-          errors.email = 'Invalid email'
-        }
-        return errors
-      }}
-    >
+    <Form onSubmit={onSubmit}>
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <Field name="firstName">
+          <Field name="firstName" validate={required}>
             {({ input, meta }) => (
               <div>
                 <label htmlFor="firstName">First Name</label>
@@ -48,7 +37,7 @@ export default function SignupForm() {
               </div>
             )}
           </Field>
-          <Field name="lastName">
+          <Field name="lastName" validate={required}>
             {({ input, meta }) => (
               <div>
                 <label htmlFor="lastName">Last Name</label>
@@ -62,7 +51,10 @@ export default function SignupForm() {
               </div>
             )}
           </Field>
-          <Field name="email">
+          <Field
+            name="email"
+            validate={composeValidators(required, isValidEmail)}
+          >
             {({ input, meta }) => (
               <div>
                 <label htmlFor="email">Email</label>

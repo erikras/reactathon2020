@@ -14,38 +14,58 @@ import isEmail from 'sane-email-validation'
  */
 export default function SignupForm() {
   return (
-    <Form onSubmit={onSubmit}>
+    <Form
+      onSubmit={onSubmit}
+      validate={values => {
+        const errors = {}
+        if (!values.firstName) {
+          errors.firstName = 'Required'
+        }
+        if (!values.lastName) {
+          errors.lastName = 'Required'
+        }
+        if (!values.email) {
+          errors.email = 'Required'
+        } else if (!isEmail(values.email)) {
+          errors.email = 'Invalid Email'
+        }
+        return errors
+      }}
+    >
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="firstName">First Name</label>
-            <Field
-              component="input"
-              type="text"
-              id="firstName"
-              name="firstName"
-              placeholder="First Name"
-            />
+            <Field type="text" name="firstName">
+              {({ input, meta }) => (
+                <>
+                  <input {...input} id="firstName" placeholder="First Name" />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </>
+              )}
+            </Field>
           </div>
           <div>
             <label htmlFor="lastName">Last Name</label>
-            <Field
-              component="input"
-              type="text"
-              id="lastName"
-              name="lastName"
-              placeholder="Last Name"
-            />
+            <Field type="text" name="lastName">
+              {({ input, meta }) => (
+                <>
+                  <input {...input} id="lastName" placeholder="Last Name" />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </>
+              )}
+            </Field>
           </div>
           <div>
             <label htmlFor="email">Email</label>
-            <Field
-              component="input"
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Email"
-            />
+            <Field type="email" name="email">
+              {({ input, meta }) => (
+                <>
+                  <input {...input} id="email" placeholder="Email" />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </>
+              )}
+            </Field>
           </div>
           <button type="submit">Submit</button>
         </form>

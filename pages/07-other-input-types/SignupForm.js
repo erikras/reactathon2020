@@ -19,7 +19,7 @@ export default function SignupForm() {
           <div>
             <div>
               <label>
-                <input name="agreed" type="checkbox" /> Yes
+                <Field name="agreed" component="input" type="checkbox" /> Yes
               </label>
             </div>
           </div>
@@ -27,65 +27,133 @@ export default function SignupForm() {
           <div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="January" /> January
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="January"
+                />{' '}
+                January
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="February" />{' '}
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="February"
+                />{' '}
                 February
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="March" /> March
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="March"
+                />{' '}
+                March
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="April" /> April
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="April"
+                />{' '}
+                April
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="May" /> May
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="May"
+                />{' '}
+                May
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="June" /> June
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="June"
+                />{' '}
+                June
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="July" /> July
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="July"
+                />{' '}
+                July
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="August" /> August
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="August"
+                />{' '}
+                August
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="September" />{' '}
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="September"
+                />{' '}
                 September
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="October" /> October
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="October"
+                />{' '}
+                October
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="November" />{' '}
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="November"
+                />{' '}
                 November
               </label>
             </div>
             <div>
               <label>
-                <input name="months" type="checkbox" value="December" />{' '}
+                <Field
+                  name="months"
+                  component="input"
+                  type="checkbox"
+                  value="December"
+                />{' '}
                 December
               </label>
             </div>
@@ -96,41 +164,71 @@ export default function SignupForm() {
               {' '}
               <label>
                 {' '}
-                <input name="rating" type="radio" value="5" /> Strongly Agree
+                <Field
+                  component="input"
+                  name="rating"
+                  type="radio"
+                  value="5"
+                />{' '}
+                Strongly Agree
               </label>{' '}
             </div>
             <div>
               {' '}
               <label>
                 {' '}
-                <input name="rating" type="radio" value="4" /> Agree
+                <Field
+                  component="input"
+                  name="rating"
+                  type="radio"
+                  value="4"
+                />{' '}
+                Agree
               </label>{' '}
             </div>
             <div>
               {' '}
               <label>
                 {' '}
-                <input name="rating" type="radio" value="3" /> Meh
+                <Field
+                  component="input"
+                  name="rating"
+                  type="radio"
+                  value="3"
+                />{' '}
+                Meh
               </label>{' '}
             </div>
             <div>
               {' '}
               <label>
                 {' '}
-                <input name="rating" type="radio" value="2" /> Disagree
+                <Field
+                  component="input"
+                  name="rating"
+                  type="radio"
+                  value="2"
+                />{' '}
+                Disagree
               </label>{' '}
             </div>
             <div>
               {' '}
               <label>
                 {' '}
-                <input name="rating" type="radio" value="1" /> Strongly Disagree
+                <Field
+                  component="input"
+                  name="rating"
+                  type="radio"
+                  value="1"
+                />{' '}
+                Strongly Disagree
               </label>{' '}
             </div>
           </div>
           <h3>Favorite Simpson?</h3>
           <div>
-            <select name="favoriteSimpson">
+            <Field component="select" name="favoriteSimpson">
               <option />
               <option value="bart">Bart</option>
               <option value="lisa">Lisa</option>
@@ -138,18 +236,18 @@ export default function SignupForm() {
               <option value="marge">Marge</option>
               <option value="homer">Homer</option>
               <option value="grandpa">Grandpa</option>
-            </select>
+            </Field>
           </div>
           <h3>Toppings</h3>
           <div>
-            <select name="toppings" multiple>
+            <Field component="select" name="toppings" multiple>
               <option value="pepperoni">Pepperoni</option>
               <option value="sausage">Sausage</option>
               <option value="ham">Ham</option>
               <option value="mushrooms">Mushrooms</option>
               <option value="olives">Olives</option>
               <option value="pineapple">Pineapple</option>
-            </select>
+            </Field>
           </div>
           <button type="submit">Submit</button>
           <pre>{JSON.stringify(values, undefined, 2)}</pre>

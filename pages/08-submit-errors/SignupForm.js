@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Field } from 'react-final-form'
+
 import onSubmit from './onSubmit'
 
 /**
@@ -27,7 +28,7 @@ export default function SignupForm() {
         return errors
       }}
     >
-      {({ handleSubmit }) => (
+      {({ handleSubmit, submitError }) => (
         <form onSubmit={handleSubmit}>
           <p>
             Username <code>"erikras"</code> will fail, and any secret other than{' '}
@@ -43,7 +44,11 @@ export default function SignupForm() {
                   type="text"
                   placeholder="Username"
                 />
-                {meta.error && meta.touched && <span>{meta.error}</span>}
+                {meta.touched &&
+                  ((meta.error && <span>{meta.error}</span>) ||
+                    (meta.submitError && !meta.dirtySinceLastSubmit && (
+                      <span>{meta.submitError}</span>
+                    )))}
               </div>
             )}
           </Field>
@@ -62,7 +67,7 @@ export default function SignupForm() {
             )}
           </Field>
 
-          {/* <div className="error">Form wide error goes here</div> */}
+          {submitError && <div className="error">{submitError}</div>}
 
           <button type="submit">Submit</button>
         </form>
